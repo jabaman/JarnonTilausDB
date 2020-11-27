@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">TilausDB(@ViewBag.LoggedStatus)</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/Home">Home<span class="sr-only">(current)</span></a></li>
+                
+                <li class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+ 
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sovellukset</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" href="/Tuotteet/Index">Tuotteet</a>
+                        <a class="dropdown-item" href="/Henkilo">Henkilöt</a>
+                        <a class="dropdown-item" href="/Tilaukset">Tilaukset</a>
+                        <a class="dropdown-item" href="/Tilausrivit">Tilausrivit</a>
+                        <a class="dropdown-item" href="/Asiakkaat">Asiakkaat</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">All about This amazing company</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" href="/Home/TuotteidenNaytto">Tuotteet</a>
+                        <a class="dropdown-item" href="/Home/Contact">Abouttiarallaa</a>
+
+                    </div>
+                </li>
+
+            </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+    </nav>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("TilausDB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                        <li>@Html.ActionLink("Henkilöt", "index", "Henkilo")</li>
+                        <li>@Html.ActionLink("Tilaukset", "Index", "Tilaukset")</li>
+                        <li>@Html.ActionLink("Tilausrivit", "Index", "Tilausrivit")</li>
+                        <li>@Html.ActionLink("Tuotteet", "index", "Tuotteet")</li>
+                        <li>@Html.ActionLink("Asiakkaat", "Index", "Asiakkaat")</li>
+                        <li>@Html.ActionLink("Postitoimipaikat", "Index", "Postitoimipaikat")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Jarno Matikainen test application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

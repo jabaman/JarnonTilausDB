@@ -1,0 +1,72 @@
+﻿@model IEnumerable<JarnoTilausDB.Models.Tuotteet>
+@{
+    ViewBag.Title = "tuotevalikoima";
+}
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".naytaTuotetiedot").click(function () {
+                var tuoteid = $(this).data("tuoteid");
+                alert(tuoteid);
+            });
+        });
+
+        $(function () {
+            $("#poistaTuote").click(function () {
+                var tuoteid = $(this).data("tuoteid");
+                alert(tuoteid);
+            });
+        });
+    </script>
+}
+<div class="container-fluid">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row">
+        @foreach (JarnoTilausDB.Models.Tuotteet prod in Model)
+        {
+            <div class="col-lg-3">
+                <div class="card mb-3">
+                    <h3 class="card-header">@prod.Nimi</h3>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;" src="@prod.Kuva" alt="@prod.Kuva">
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">TuoteID: @prod.TuoteID</li>
+
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@prod.Ahinta e/Kpl</li>
+
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Muokkaa</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+        @*<tr>
+            <td class="naytaTuotetiedot" data-tuoteid="@prod.TuoteID">@prod.TuoteID</td>
+            <td>@prod.Nimi</td>
+            <td>@prod.Ahinta</td>
+            <td><button class="btn btn-success" onclick='naytaTuote("@prod.Nimi")'>Muokkaa</button></td>
+                <td><button class="btn btn-primary naytaTuotetiedot" data-tuoteid="@prod.TuoteID">Tuotetiedot</button></td>
+                <td><button class="btn btn-danger" data-tuoteid="@prod.TuoteID" id="poistaTuote">Poista</button></td>
+
+        </tr>*@
+
+
+
+        <script>
+            function naytaTuote(TuoteID) {
+                alert(TuoteID);
+            }
+
+        </script>
